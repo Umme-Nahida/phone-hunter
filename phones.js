@@ -31,6 +31,7 @@ const displayPhones = (phones,isShowAll)=>{
   phones = phones.slice(0,10);
  }
  
+//  phones card container section 
   const phoneContainer = document.getElementById("phone-container");
       phoneContainer.innerHTML = "";
       phones.forEach(phone => {
@@ -53,7 +54,7 @@ const displayPhones = (phones,isShowAll)=>{
 }
 
 
-
+// search functionality
 const handleSearch =(isShowAll)=>{
   loaderSpinner(true);
   const searchField = document.getElementById("search-field");
@@ -72,11 +73,13 @@ function loaderSpinner(isloading){
     // console.log(isloading)
 }
 
+// show spinner button
 const showAllPhones =()=>{
   handleSearch(true);
   console.log("iam added here");
 }
 
+// get details by id
 const handleShowDetails =async(id)=>{
  const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
  const data = await res.json();
