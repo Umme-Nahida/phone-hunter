@@ -14,7 +14,7 @@ const loadData = async(search="iphone",isShowAll)=>{
 
 
 const displayPhones = (phones,isShowAll)=>{
-  console.log("phones length",phones.length);
+  console.log("phones length",phones.length,phones);
   const btn = document.getElementById("show-all");
 
   if(phones.length > 10 && !isShowAll){
@@ -93,12 +93,20 @@ const showPhoneDetails=(phone)=>{
   console.log(phone.data)
   const phoneDetailsContainer = document.getElementById("phone-details-container");
   phoneDetailsContainer.innerHTML = `
-  <figure class="px-10 pt-10 mx-auto text-center">
-  <img src=${phone.data.image} alt="Shoes" class="rounded-xl" />
+  <figure class="px-10 py-10 flex items-center justify-center mb-5 bg-cyan-300">
+  <img src=${phone.data.image} alt="Shoes" class="rounded-xl"/>
  </figure>
- <div class="items-center text-center">
+ <div class="items-center text-left">
     <h2 class="text-3xl">${phone.data.name}</h2>
     <p>If a dog chews shoes whose shoes does he choose?</p>
+    <p><span class="font-medium">Storage: </span>${phone.data?.mainFeatures.storage}</p>
+    <p><span class="font-medium">Display Size: </span>${phone.data?.mainFeatures?.displaySize}</p>
+    <p><span class="font-medium">Chipset: </span>${phone.data?.mainFeatures?.chipSet}</p>
+    <p><span class="font-medium">Memory: </span>${phone.data?.mainFeatures?.memory}</p>
+    <p><span class="font-medium">Slug: </span>${phone.data?.slug}</p>
+    <p><span class="font-medium">Release Date: </span>${phone.data?.releaseDate}</p>
+    <p><span class="font-medium">Brand: </span>${phone.data?.brand}</p>
+    <p><span class="font-medium">GPS: </span>${phone.data?.others?.GPS ? phone.data?.others?.GPS : "no GPS available"}</p>
     
   </div>
   `
