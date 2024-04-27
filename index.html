@@ -36,6 +36,24 @@
       <div class="text-center mt-5">
         <button onclick="showAllPhones()" class="btn btn-primary hidden" id="show-all">Show All Product</button>
       </div>
+
+
+      <!-- this is modal -->
+      <!-- Open the modal using ID.showModal() method -->
+       <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+       <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+         <div class="modal-box">
+           <div id="phone-details-container" class="text-center mx-auto">
+
+           </div>
+           <div class="modal-action">
+             <form method="dialog">
+               <!-- if there is a button in form, it will close the modal -->
+               <button class="btn">Close</button>
+             </form>
+           </div>
+         </div>
+       </dialog>
     </main>
     <footer>
         

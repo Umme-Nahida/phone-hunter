@@ -5,7 +5,7 @@
 
 // }
 
-const loadData = async(search,isShowAll)=>{
+const loadData = async(search="iphone",isShowAll)=>{
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${search}`)
     const data = await res.json();
     const phones = data.data;
@@ -43,7 +43,7 @@ const displayPhones = (phones,isShowAll)=>{
         <h2 class="card-title">${phone.phone_name}</h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div class="card-actions justify-end">
-          <button onclick="handleShowDetails('${phone.slug}')" class="btn btn-primary">Show details</button>
+          <button onclick="handleShowDetails('${phone.slug}'); " class="btn btn-primary">Show details</button>
         </div>
       </div>
       `
@@ -77,10 +77,30 @@ const showAllPhones =()=>{
   console.log("iam added here");
 }
 
-const handleShowDetails =(id)=>{
-  console.log("show details",id);
+const handleShowDetails =async(id)=>{
+ const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+ const data = await res.json();
+ console.log(data)
+ showPhoneDetails(data)
+
 }
 
+const showPhoneDetails=(phone)=>{
+  my_modal_5.showModal()
+  console.log(phone.data)
+  const phoneDetailsContainer = document.getElementById("phone-details-container");
+  phoneDetailsContainer.innerHTML = `
+  <figure class="px-10 pt-10 mx-auto text-center">
+  <img src=${phone.data.image} alt="Shoes" class="rounded-xl" />
+ </figure>
+ <div class="items-center text-center">
+    <h2 class="text-3xl">${phone.data.name}</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    
+  </div>
+  `
+}
+loadData();
 // Add event listener to the "Show All" button
 // const showAllBtn = document.getElementById("show-all");
 // showAllBtn.addEventListener("click", showAllPhones);
