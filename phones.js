@@ -87,7 +87,7 @@ const handleShowDetails =async(id)=>{
  showPhoneDetails(data)
 
 }
-
+// display the phone details 
 const showPhoneDetails=(phone)=>{
   my_modal_5.showModal()
   console.log(phone.data)
