@@ -23,14 +23,16 @@
               <button onclick="handleSearch()" class="btn btn-active btn-accent">Search</button>
         </section>
       <!-- phones container  -->
-      <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 shadow-lime-200">
+      <section>
         <!-- loader spinner added -->
-        <div>
-          
+        <div id="loader" class="text-center my-32 hidden">
+           <span class="loading loading-dots loading-lg text-success"></span>
         </div>
-        <!-- card add here -->
-
-      </div>
+       <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 shadow-lime-200">
+        
+         <!-- card add here -->
+       </div>
+      </section>
       <div class="text-center">
         <button class="btn btn-primary hidden" id="show-all">Show All Product</button>
       </div>
