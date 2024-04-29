@@ -1,9 +1,4 @@
-// function loadData (){
-//     // fetch("https://openapi.programming-hero.com/api/phones?search=iphone")
-//     // .then(res => res.json())
-//     // .then(data => console.log(data.data))
-
-// }
+// banner section added
 
 const loadData = async(search="iphone",isShowAll)=>{
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${search}`)
