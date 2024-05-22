@@ -1,5 +1,34 @@
 // banner section added
+const bannerSection = async()=>{
+  const res = await fetch("https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089");
+  const data = await res.json();
+  const banner = data.data
+  displayBannerText(banner)
+}
 
+const displayBannerText = (data)=>{
+  console.log("banner content",data)
+  const bannerSection = document.getElementById("banner-section");
+  const div = document.createElement("div");
+  div.innerHTML = `
+  <div className="hero min-h-screen">
+  <div className="hero-content text-center">
+    <div className="max-w-md">
+      <h1 className="text-5xl font-bold">${data.name}</h1>
+      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <button className="btn btn-primary">Get Started</button>
+    </div>
+  </div>
+</div>
+    <div>
+      <img src=${data?.image} alt="" />
+    </div>
+  `
+
+  bannerSection.appendChild(div);
+}
+
+bannerSection();
 const loadData = async(search="iphone",isShowAll)=>{
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${search}`)
     const data = await res.json();
